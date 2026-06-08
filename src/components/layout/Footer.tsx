@@ -41,7 +41,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
           {/* Brand Column */}
           <div className="col-span-1 md:col-span-1 flex flex-col gap-6">
             <Link
-              href={`/${locale}`}
+              href="https://dacbbox.com"
               className="group flex items-center gap-2.5 text-xl font-bold text-[hsl(var(--color-foreground))]"
               aria-label={`${t('brand')} - ${t('navigation.home')}`}
             >
@@ -65,17 +65,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
               {t('tagline') || 'Professional, secure, and free PDF tools for everyone. No installation required.'}
             </p>
 
-            <div className="flex gap-4">
-              <a href="https://github.com/PDFCraftTool/pdfcraft" className="p-2 rounded-full bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-primary))] hover:text-white transition-all">
-                <Github className="w-4 h-4" />
-              </a>
-              <a href="https://x.com/PDFCraftTool" className="p-2 rounded-full bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-primary))] hover:text-white transition-all">
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a href="#" className="p-2 rounded-full bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-primary))] hover:text-white transition-all">
-                <Mail className="w-4 h-4" />
-              </a>
-            </div>
+
           </div>
 
           {/* Quick Links */}
@@ -144,37 +134,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
           </div>
         </div>
 
-        {/* Language Switcher */}
-        <div className="py-6 border-t border-[hsl(var(--color-border))]">
-          <div className="flex items-center gap-3 mb-4">
-            <Globe className="h-4 w-4 text-[hsl(var(--color-muted-foreground))]" />
-            <span className="text-sm font-medium text-[hsl(var(--color-foreground))]">
-              {t('buttons.selectLanguage')}
-            </span>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {locales.map((loc) => {
-              const config = localeConfig[loc];
-              const isActive = loc === locale;
-              return (
-                <button
-                  key={loc}
-                  onClick={() => handleLanguageChange(loc)}
-                  className={`
-                    px-3 py-1.5 text-sm rounded-full transition-all
-                    ${isActive
-                      ? 'bg-[hsl(var(--color-primary))] text-white font-medium'
-                      : 'bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-primary)/0.1)] hover:text-[hsl(var(--color-primary))]'
-                    }
-                  `}
-                  aria-current={isActive ? 'true' : undefined}
-                >
-                  {config.nativeName}
-                </button>
-              );
-            })}
-          </div>
-        </div>
+
 
         {/* Copyright */}
         <div className="pt-8 border-t border-[hsl(var(--color-border))] flex flex-col md:flex-row items-center justify-between gap-4">

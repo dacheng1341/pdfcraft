@@ -86,10 +86,10 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
       <Header locale={locale} />
 
       <main id="main-content" className="flex-1 relative" tabIndex={-1}>
-        {/* Hero Section */}
+        {/* Combined Hero & Popular Tools Section */}
         <section
-          className="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-28"
-          aria-labelledby="hero-title"
+          className="relative overflow-hidden pt-28 pb-12 bg-[hsl(var(--color-muted)/0.5)]"
+          aria-labelledby="popular-tools-heading"
         >
           {/* Animated Background Blobs */}
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
@@ -99,84 +99,36 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
           </div>
 
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
+            {/* Top Navigation Row */}
+            <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
               {/* Brand Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-[hsl(var(--color-background)/0.8)] border border-[hsl(var(--color-primary)/0.2)] shadow-sm backdrop-blur-md transition-all hover:bg-[hsl(var(--color-background))]">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[hsl(var(--color-background)/0.8)] border border-[hsl(var(--color-primary)/0.2)] shadow-sm backdrop-blur-md transition-all hover:bg-[hsl(var(--color-background))]">
                 <Sparkles className="h-4 w-4 text-[hsl(var(--color-primary))]" aria-hidden="true" />
                 <span className="text-sm font-medium text-[hsl(var(--color-primary))]">
                   {t('common.brand')}
                 </span>
               </div>
+              
+              {/* CTA Button */}
+              <Link href={`/${locale}/tools`}>
+                <Button variant="primary" size="sm" className="h-10 px-6 text-sm shadow-md hover:shadow-primary/25 transition-all hover:-translate-y-0.5">
+                  {t('home.hero.cta')}
+                  <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                </Button>
+              </Link>
 
-              {/* Hero Title */}
-              <h1 id="hero-title" className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                <span className="text-[hsl(var(--color-foreground))]">{t('home.hero.title')} </span>
-                <span className="text-gradient block mt-1 pb-2">{t('home.hero.highlight')}</span>
-              </h1>
-
-              {/* Hero Subtitle */}
-              <p className="text-lg text-[hsl(var(--color-muted-foreground))] mb-8 max-w-2xl mx-auto leading-relaxed">
-                {t('home.hero.subtitle')}
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href={`/${locale}/tools`}>
-                  <Button variant="primary" size="lg" className="h-11 px-8 text-base shadow-lg hover:shadow-primary/25 transition-all hover:-translate-y-0.5">
-                    {t('home.hero.cta')}
-                    <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
-                  </Button>
-                </Link>
-                <div className="flex items-center gap-2 text-sm text-[hsl(var(--color-muted-foreground))] bg-[hsl(var(--color-background)/0.5)] px-4 py-2 rounded-full border border-[hsl(var(--color-border))] backdrop-blur-sm">
-                  <Lock className="h-4 w-4 text-green-500" aria-hidden="true" />
-                  <span>{t('common.footer.privacyBadge')}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Features Section */}
-        <section className="py-12 relative z-20" aria-label="Features">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {features.map((feature, index) => {
-                const Icon = feature.icon;
-                return (
-                  <Card key={index} className="p-6 text-center glass-card border-0 hover:-translate-y-1 transition-transform duration-300" hover={false}>
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[hsl(var(--color-primary)/0.1)] mb-4 text-[hsl(var(--color-primary))]">
-                      <Icon className={`h-6 w-6 ${feature.color}`} aria-hidden="true" />
-                    </div>
-                    <h3 className="text-lg font-bold text-[hsl(var(--color-foreground))] mb-2">
-                      {t(feature.titleKey)}
-                    </h3>
-                    <p className="text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed">
-                      {t(feature.descriptionKey)}
-                    </p>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Popular Tools Section */}
-        <section className="py-16 bg-[hsl(var(--color-muted)/0.5)]" aria-labelledby="popular-tools-heading">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 mb-3 rounded-full bg-[hsl(var(--color-primary)/0.1)] border border-[hsl(var(--color-primary)/0.2)]">
+              {/* Shortened Popular Tools Info */}
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[hsl(var(--color-primary)/0.05)] border border-[hsl(var(--color-primary)/0.1)]">
                 <Star className="h-4 w-4 text-[hsl(var(--color-primary))]" aria-hidden="true" />
-                <span className="text-sm font-medium text-[hsl(var(--color-primary))]">
-                  {t('home.popularTools.badge')}
+                <h2 id="popular-tools-heading" className="text-sm font-bold text-[hsl(var(--color-foreground))] m-0">
+                  {t('home.popularTools.title')}
+                </h2>
+                <span className="hidden sm:inline text-sm text-[hsl(var(--color-muted-foreground))] border-l border-[hsl(var(--color-border))] pl-2 ml-1">
+                  {t('home.popularTools.description')}
                 </span>
               </div>
-              <h2 id="popular-tools-heading" className="text-3xl font-bold text-[hsl(var(--color-foreground))] mb-3">
-                {t('home.popularTools.title')}
-              </h2>
-              <p className="text-[hsl(var(--color-muted-foreground))] max-w-2xl mx-auto text-base">
-                {t('home.popularTools.description')}
-              </p>
             </div>
+
             <ToolGrid
               tools={popularTools}
               locale={locale}
@@ -184,6 +136,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
             />
           </div>
         </section>
+
 
         <section className="py-16" aria-labelledby="featured-tools-heading">
           <div className="container mx-auto px-4">
@@ -257,6 +210,30 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                       </div>
                     </Card>
                   </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="py-12 relative z-20" aria-label="Features">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <Card key={index} className="p-6 text-center glass-card border-0 hover:-translate-y-1 transition-transform duration-300" hover={false}>
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[hsl(var(--color-primary)/0.1)] mb-4 text-[hsl(var(--color-primary))]">
+                      <Icon className={`h-6 w-6 ${feature.color}`} aria-hidden="true" />
+                    </div>
+                    <h3 className="text-lg font-bold text-[hsl(var(--color-foreground))] mb-2">
+                      {t(feature.titleKey)}
+                    </h3>
+                    <p className="text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed">
+                      {t(feature.descriptionKey)}
+                    </p>
+                  </Card>
                 );
               })}
             </div>

@@ -10,18 +10,9 @@ export default function RootPage() {
 
   useEffect(() => {
     try {
-      // Get browser language
-      const browserLang = navigator.language;
-      const primaryLang = browserLang.split('-')[0];
-
-      // Check if the language is supported
-      if ((locales as readonly string[]).includes(primaryLang)) {
-        router.replace(`/${primaryLang}`);
-      } else {
-        router.replace(`/${defaultLocale}`);
-      }
+      // Always redirect to default locale
+      router.replace(`/${defaultLocale}`);
     } catch (error) {
-      // Fallback to default locale if anything goes wrong
       router.replace(`/${defaultLocale}`);
     }
   }, [router]);
