@@ -6,6 +6,7 @@ import { Button, type ButtonProps } from '../ui/Button';
 import { addRecentFile } from '@/lib/storage/recent-files';
 import { useToolContext } from '@/lib/contexts/ToolContext';
 import { sanitizeFilename } from '@/lib/utils/sanitize';
+import { trackEvent } from '@/lib/analytics';
 
 export interface DownloadButtonProps extends Omit<ButtonProps, 'onClick' | 'children'> {
   /** Blob data to download */
@@ -129,6 +130,8 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
     setTimeout(() => {
       setIsDownloading(false);
       onDownloadComplete?.();
+      
+      trackEvent('pdf-downloaded', { tool_id: toolSlug, size: file?.size });
       
       // Record to recent files if tool info is provided
       if (toolSlug && file) {

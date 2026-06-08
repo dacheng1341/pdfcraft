@@ -914,6 +914,14 @@
       "codeCopied": "Đã sao chép mã SVG vào bộ nhớ tạm",
       "copyCode": "Sao chép mã SVG",
       "downloadSvg": "Tải xuống tài sản SVG"
+    },
+    "seoArticle": {
+      "h2": "What is pure local {brand}?",
+      "h2Desc": "Unlike traditional cloud-based PDF tools, {brand} utilizes cutting-edge WebAssembly and HTML5 Canvas technologies to process your files directly within your browser. This means your sensitive documents are never uploaded to any external server. You enjoy 100% privacy, instant processing speeds, and no file size limits imposed by cloud storage.",
+      "h3Advantage": "What are the advantages of Client-Side Processing?",
+      "h3AdvantageDesc": "By leveraging client-side processing, {brand} eliminates the risk of data breaches during transmission. Operations like PDF merging, splitting, and compression happen locally on your device's CPU and RAM. This architecture not only guarantees absolute data security but also provides a seamless, offline-capable experience once the application is loaded.",
+      "h3Features": "Core Features & Capabilities",
+      "h3FeaturesDesc": "Experience a comprehensive suite of professional PDF tools at your fingertips. Features include batch processing of multiple files, lossless compression algorithms, intelligent PDF splitting and merging, OCR text extraction, and advanced document security options like password encryption and watermarking—all running locally without requiring internet connectivity."
     }
   },
   "toolsPage": {

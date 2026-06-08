@@ -2,6 +2,8 @@
 
 import React, { useMemo, useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
+import { trackEvent } from '@/lib/analytics';
+import { useToolContext } from '@/lib/contexts/ToolContext';
 
 export type ProcessingStatus = 'idle' | 'uploading' | 'processing' | 'complete' | 'error';
 
@@ -41,6 +43,8 @@ export const ProcessingProgress: React.FC<ProcessingProgressProps> = ({
   onCancel,
 }) => {
   const t = useTranslations('common');
+  const toolContext = useToolContext();
+  const toolSlug = toolContext?.toolSlug;
 
   // Clamp progress between 0 and 100
   const clampedProgress = Math.max(0, Math.min(100, progress));
@@ -110,6 +114,7 @@ export const ProcessingProgress: React.FC<ProcessingProgressProps> = ({
     if (prevStatusRef.current !== status) {
       if (status === 'complete') {
         announcementRef.current = `${statusText}. ${message || ''}`;
+        trackEvent('tool-processed', { tool_id: toolSlug });
       } else if (status === 'error') {
         announcementRef.current = `${statusText}. ${message || ''}`;
       } else if (status === 'processing' || status === 'uploading') {

@@ -14,6 +14,8 @@ import { Home, ChevronRight } from 'lucide-react';
 import { FavoriteButton } from '@/components/ui/FavoriteButton';
 import { useMemo } from 'react';
 import { sanitizeHtml } from '@/lib/utils/html-sanitizer';
+import { AdSense } from '@/components/ads/AdSense';
+import { SEOArticle } from '@/components/seo/SEOArticle';
 
 export interface ToolPageProps {
   /** Tool data */
@@ -103,6 +105,9 @@ export function ToolPage({ tool, content, locale, children, localizedRelatedTool
               {children}
             </section>
 
+            {/* Top Ad Unit */}
+            <AdSense adSlot="XXXXXXXXXX" format="auto" />
+
             {/* Description Section */}
             <DescriptionSection description={content.description} />
 
@@ -114,6 +119,12 @@ export function ToolPage({ tool, content, locale, children, localizedRelatedTool
 
             {/* FAQ Section */}
             <FAQSection faq={content.faq} />
+
+            {/* Bottom Ad Unit */}
+            <AdSense adSlot="XXXXXXXXXX" format="auto" className="mt-8 mb-4" />
+
+            {/* SEO Article Area */}
+            <SEOArticle />
 
             {/* Related Tools Section */}
             <RelatedToolsSection

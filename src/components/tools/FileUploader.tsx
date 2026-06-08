@@ -3,6 +3,7 @@
 import React, { useCallback, useRef, useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { UploadCloud, File, Plus, X, Lock, Loader2 } from 'lucide-react';
+import { trackEvent } from '@/lib/analytics';
 
 export interface FileUploaderProps {
   /** Accepted file types (MIME types or extensions) */
@@ -194,6 +195,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
         setEncryptCurrentIndex(nextIndex);
       } else {
         // Complete! Notify tool components of the unlocked files alongside native plain files
+        trackEvent('file-uploaded', { count: updatedAccumulator.length, has_encrypted: true });
         onFilesSelected(updatedAccumulator);
         resetDecryptStates();
       }
@@ -245,6 +247,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
         setDecryptError(null);
       } else {
         // All files are already plain/unencrypted, transmit natively
+        trackEvent('file-uploaded', { count: valid.length });
         onFilesSelected(valid);
       }
     }
