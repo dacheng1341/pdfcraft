@@ -545,7 +545,7 @@ export function HeaderFooterTool({ className = '' }: HeaderFooterToolProps) {
         </div>
       )}
 
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

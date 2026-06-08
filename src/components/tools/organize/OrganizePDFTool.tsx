@@ -535,7 +535,7 @@ export function OrganizePDFTool({ className = '' }: OrganizePDFToolProps) {
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

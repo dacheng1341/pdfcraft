@@ -221,7 +221,7 @@ export function TableOfContentsTool({ className = '' }: TableOfContentsToolProps
         </>
       )}
 
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

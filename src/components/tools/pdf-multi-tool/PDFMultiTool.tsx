@@ -839,7 +839,7 @@ export function PDFMultiTool({ className = '' }: PDFMultiToolProps) {
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

@@ -410,7 +410,7 @@ export function ChangePermissionsTool({ className = '' }: ChangePermissionsToolP
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

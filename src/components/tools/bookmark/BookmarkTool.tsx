@@ -811,7 +811,7 @@ export function BookmarkTool({ className = '' }: BookmarkToolProps) {
         </div>
       )}
 
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

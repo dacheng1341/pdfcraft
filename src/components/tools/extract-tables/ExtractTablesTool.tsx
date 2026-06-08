@@ -255,7 +255,7 @@ export function ExtractTablesTool({ className = '' }: ExtractTablesToolProps) {
             )}
 
             {/* Processing Progress */}
-            {(isProcessing || status === 'complete') && (
+            {isProcessing && (
                 <ProcessingProgress
                     progress={progress}
                     status="processing"

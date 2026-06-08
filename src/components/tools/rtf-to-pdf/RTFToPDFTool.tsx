@@ -211,7 +211,7 @@ export function RTFToPDFTool({ className = '' }: RTFToPDFToolProps) {
                 </Card>
             )}
 
-            {(isProcessing || status === 'complete') && (
+            {isProcessing && (
                 <ProcessingProgress progress={progress} status={status} message={progressMessage} onCancel={handleCancel} showPercentage />
             )}
 

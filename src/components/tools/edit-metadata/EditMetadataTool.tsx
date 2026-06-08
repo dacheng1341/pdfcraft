@@ -370,7 +370,7 @@ export function EditMetadataTool({ className = '' }: EditMetadataToolProps) {
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

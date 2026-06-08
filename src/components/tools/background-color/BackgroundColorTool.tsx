@@ -54,7 +54,7 @@ export function BackgroundColorTool({ className = '' }: BackgroundColorToolProps
           </Card>
         </>
       )}
-      {(isProcessing || status === 'complete') && <ProcessingProgress progress={progress} status={status} onCancel={() => { cancelledRef.current = true; setStatus('idle'); }} showPercentage />}
+      {isProcessing && <ProcessingProgress progress={progress} status={status} onCancel={() => { cancelledRef.current = true; setStatus('idle'); }} showPercentage />}
       {file && <div className="flex flex-wrap items-center gap-4"><Button variant="primary" size="lg" onClick={handleProcess} disabled={!file || isProcessing} loading={isProcessing}>{isProcessing ? 'Processing...' : 'Add Background'}</Button>{result && <DownloadButton file={result} filename={file.name.replace('.pdf', '_background.pdf')} variant="secondary" size="lg" showFileSize />}</div>}
       {status === 'complete' && result && <div className="p-4 rounded bg-green-50 border border-green-200 text-green-700"><p className="text-sm font-medium">Background color added!</p></div>}
     </div>

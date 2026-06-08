@@ -354,7 +354,7 @@ export function ViewMetadataTool({ className = '' }: ViewMetadataToolProps) {
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

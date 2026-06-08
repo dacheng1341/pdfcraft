@@ -529,7 +529,7 @@ export function NUpPDFTool({ className = '' }: NUpPDFToolProps) {
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

@@ -257,7 +257,7 @@ export function DecryptPDFTool({ className = '' }: DecryptPDFToolProps) {
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

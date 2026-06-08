@@ -1034,7 +1034,7 @@ export function RotatePDFTool({ className = '' }: RotatePDFToolProps) {
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

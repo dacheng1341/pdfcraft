@@ -200,7 +200,7 @@ export function FontToOutlineTool({ className = '' }: FontToOutlineToolProps) {
                 </Card>
             )}
 
-            {(isProcessing || status === 'complete') && (
+            {isProcessing && (
                 <ProcessingProgress progress={overallProgress} status="processing" message={`Processing ${completedCount + 1}/${files.length}...`} onCancel={cancelProcessing} showPercentage />
             )}
 

@@ -156,7 +156,7 @@ export function XPSToPDFTool({ className = '' }: XPSToPDFToolProps) {
                 </Card>
             )}
 
-            {(isProcessing || status === 'complete') && (
+            {isProcessing && (
                 <ProcessingProgress progress={progress} status={status} message={progressMessage} onCancel={handleCancel} showPercentage />
             )}
 

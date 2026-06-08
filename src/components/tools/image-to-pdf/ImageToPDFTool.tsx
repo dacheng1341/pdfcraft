@@ -552,7 +552,7 @@ export function ImageToPDFTool({ className = '', imageType }: ImageToPDFToolProp
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

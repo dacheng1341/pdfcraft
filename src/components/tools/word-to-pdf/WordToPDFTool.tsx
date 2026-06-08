@@ -271,7 +271,7 @@ export function WordToPDFTool({ className = '' }: WordToPDFToolProps) {
             )}
 
             {/* Processing Progress */}
-            {(isProcessing || status === 'complete') && (
+            {isProcessing && (
                 <ProcessingProgress
                     progress={progress}
                     status={status}

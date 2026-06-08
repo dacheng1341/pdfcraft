@@ -404,7 +404,7 @@ export function TimestampPDFTool({ className = '' }: TimestampPDFToolProps) {
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

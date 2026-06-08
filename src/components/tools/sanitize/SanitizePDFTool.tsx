@@ -296,7 +296,7 @@ export function SanitizePDFTool({ className = '' }: SanitizePDFToolProps) {
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

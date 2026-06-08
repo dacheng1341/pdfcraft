@@ -373,7 +373,7 @@ export function FixPageSizeTool({ className = '' }: FixPageSizeToolProps) {
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

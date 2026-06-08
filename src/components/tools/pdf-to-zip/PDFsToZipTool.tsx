@@ -297,7 +297,7 @@ export function PDFsToZipTool({ className = '' }: PDFsToZipToolProps) {
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

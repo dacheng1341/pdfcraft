@@ -237,7 +237,7 @@ export function PDFToPDFATool({ className = '' }: PDFToPDFAToolProps) {
                 </Card>
             )}
 
-            {(isProcessing || status === 'complete') && (
+            {isProcessing && (
                 <ProcessingProgress
                     progress={overallProgress}
                     status="processing"

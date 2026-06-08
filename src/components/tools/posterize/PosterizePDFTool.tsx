@@ -402,7 +402,7 @@ export function PosterizePDFTool({ className = '' }: PosterizePDFToolProps) {
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

@@ -424,7 +424,7 @@ export function PDFToTIFFTool({ className = '' }: PDFToTIFFToolProps) {
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

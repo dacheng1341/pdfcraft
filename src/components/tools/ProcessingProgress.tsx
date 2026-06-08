@@ -114,7 +114,6 @@ export const ProcessingProgress: React.FC<ProcessingProgressProps> = ({
     if (prevStatusRef.current !== status) {
       if (status === 'complete') {
         announcementRef.current = `${statusText}. ${message || ''}`;
-        trackEvent('tool-processed', { tool_id: toolSlug });
       } else if (status === 'error') {
         announcementRef.current = `${statusText}. ${message || ''}`;
       } else if (status === 'processing' || status === 'uploading') {

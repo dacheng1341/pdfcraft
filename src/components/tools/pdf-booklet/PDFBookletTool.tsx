@@ -349,7 +349,7 @@ export function PDFBookletTool({ className = '' }: PDFBookletToolProps) {
             )}
 
             {/* Processing Progress */}
-            {(isProcessing || status === 'complete') && (
+            {isProcessing && (
                 <ProcessingProgress
                     progress={progress}
                     status="processing"

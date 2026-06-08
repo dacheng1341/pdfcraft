@@ -304,7 +304,7 @@ export function DeskewPDFTool({ className = '' }: DeskewPDFToolProps) {
             )}
 
             {/* Processing Progress */}
-            {(isProcessing || status === 'complete') && (
+            {isProcessing && (
                 <ProcessingProgress
                     progress={overallProgress}
                     status="processing"

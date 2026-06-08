@@ -487,7 +487,7 @@ export function ComparePDFsTool({ className = '' }: ComparePDFsToolProps) {
       )}
 
       {/* Processing */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

@@ -80,6 +80,10 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
       const url = URL.createObjectURL(file);
       setBlobUrl(url);
       
+      // Since the DownloadButton is mounted/updated when a valid output file is generated,
+      // this is the most reliable place to track successful tool processing without UI race conditions.
+      trackEvent('tool-processed', { tool_id: toolSlug });
+      
       // Cleanup function to revoke URL when component unmounts or file changes
       return () => {
         URL.revokeObjectURL(url);

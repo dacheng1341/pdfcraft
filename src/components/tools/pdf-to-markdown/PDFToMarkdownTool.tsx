@@ -291,7 +291,7 @@ export function PDFToMarkdownTool({ className = '' }: PDFToMarkdownToolProps) {
             )}
 
             {/* Processing Progress */}
-            {(isProcessing || status === 'complete') && (
+            {isProcessing && (
                 <ProcessingProgress
                     progress={progress}
                     status={status}

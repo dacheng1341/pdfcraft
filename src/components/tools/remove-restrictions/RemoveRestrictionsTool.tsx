@@ -293,7 +293,7 @@ export function RemoveRestrictionsTool({ className = '' }: RemoveRestrictionsToo
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

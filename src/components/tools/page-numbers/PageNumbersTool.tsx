@@ -724,7 +724,7 @@ export function PageNumbersTool({ className = '' }: PageNumbersToolProps) {
         </div>
       )}
 
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

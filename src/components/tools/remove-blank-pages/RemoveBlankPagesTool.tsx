@@ -543,7 +543,7 @@ export function RemoveBlankPagesTool({ className = '' }: RemoveBlankPagesToolPro
       )}
 
       {/* In-processing spinner overlay */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress 
           progress={progress} 
           status={status} 

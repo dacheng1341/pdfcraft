@@ -282,7 +282,7 @@ export function RemoveMetadataTool({ className = '' }: RemoveMetadataToolProps) 
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

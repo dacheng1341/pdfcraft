@@ -260,7 +260,7 @@ export function PageDimensionsTool({ className = '' }: PageDimensionsToolProps) 
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

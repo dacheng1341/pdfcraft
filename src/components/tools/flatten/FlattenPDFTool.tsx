@@ -270,7 +270,7 @@ export function FlattenPDFTool({ className = '' }: FlattenPDFToolProps) {
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

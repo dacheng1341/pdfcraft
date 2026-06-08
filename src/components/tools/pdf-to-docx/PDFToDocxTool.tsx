@@ -200,7 +200,7 @@ export function PDFToDocxTool({ className = '' }: PDFToDocxToolProps) {
             )}
 
             {/* Processing Progress */}
-            {(isProcessing || status === 'complete') && (
+            {isProcessing && (
                 <ProcessingProgress
                     progress={progress}
                     status={status}

@@ -390,7 +390,7 @@ export function JSONToPDFTool({ className = '' }: JSONToPDFToolProps) {
       )}
 
       {/* Processing Progress */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

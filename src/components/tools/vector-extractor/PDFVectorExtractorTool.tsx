@@ -450,7 +450,7 @@ export function PDFVectorExtractorTool({ className = '' }: PDFVectorExtractorToo
       )}
 
       {/* Progress view */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}

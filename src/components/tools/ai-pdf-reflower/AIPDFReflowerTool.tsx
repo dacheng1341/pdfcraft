@@ -483,7 +483,7 @@ export function AIPDFReflowerTool({ className = '' }: AIPDFReflowerToolProps) {
       )}
 
       {/* Progress indicators */}
-      {(isProcessing || status === 'complete') && (
+      {isProcessing && (
                 <ProcessingProgress
           progress={progress}
           status={status}
