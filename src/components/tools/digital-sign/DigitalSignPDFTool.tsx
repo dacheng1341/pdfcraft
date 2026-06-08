@@ -476,9 +476,8 @@ export function DigitalSignPDFTool({ className = '' }: { className?: string }) {
       }
 
       {/* Processing */}
-      {
-        isProcessing && (
-          <ProcessingProgress
+      {(isProcessing || status === 'complete') && (
+                <ProcessingProgress
             progress={progress}
             status={status}
             message={progressMessage}

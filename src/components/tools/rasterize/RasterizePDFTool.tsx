@@ -282,7 +282,7 @@ export function RasterizePDFTool({ className = '' }: RasterizePDFToolProps) {
             )}
 
             {/* Processing Progress */}
-            {isProcessing && (
+            {(isProcessing || status === 'complete') && (
                 <ProcessingProgress
                     progress={progress}
                     status="processing"

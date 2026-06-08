@@ -221,8 +221,8 @@ export function TableOfContentsTool({ className = '' }: TableOfContentsToolProps
         </>
       )}
 
-      {isProcessing && (
-        <ProcessingProgress
+      {(isProcessing || status === 'complete') && (
+                <ProcessingProgress
           progress={progress}
           status={status}
           onCancel={() => {

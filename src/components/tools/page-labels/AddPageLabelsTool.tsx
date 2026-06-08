@@ -514,8 +514,8 @@ export function AddPageLabelsTool() {
       )}
 
       {/* Processing Progress */}
-      {isProcessing && (
-        <ProcessingProgress
+      {(isProcessing || status === 'complete') && (
+                <ProcessingProgress
           progress={progress}
           status={status}
           message={progressMessage}

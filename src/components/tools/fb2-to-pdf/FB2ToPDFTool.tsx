@@ -179,7 +179,7 @@ export function FB2ToPDFTool({ className = '' }: FB2ToPDFToolProps) {
                 </Card>
             )}
 
-            {isProcessing && (
+            {(isProcessing || status === 'complete') && (
                 <ProcessingProgress progress={progress} status={status} message={progressMessage} onCancel={handleCancel} showPercentage />
             )}
 

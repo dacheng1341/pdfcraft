@@ -624,7 +624,7 @@ export function CropPDFTool({ className = '' }: CropPDFToolProps) {
         </>
       )}
 
-      {isProcessing && <ProcessingProgress progress={progress} status={status} onCancel={() => { cancelledRef.current = true; setStatus('idle'); }} showPercentage />}
+      {(isProcessing || status === 'complete') && <ProcessingProgress progress={progress} status={status} onCancel={() => { cancelledRef.current = true; setStatus('idle'); }} showPercentage />}
 
       {state.file && result && status === 'complete' && (
         <div className="p-4 rounded-[var(--radius-md)] bg-green-50 border border-green-200">

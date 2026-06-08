@@ -1656,8 +1656,8 @@ export function FormCreatorTool({ className = '' }: FormCreatorToolProps) {
       )}
 
       {/* Processing Progress */}
-      {isProcessing && (
-        <ProcessingProgress
+      {(isProcessing || status === 'complete') && (
+                <ProcessingProgress
           progress={progress}
           status={status}
           message={progressMessage}

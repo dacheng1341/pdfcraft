@@ -217,7 +217,7 @@ export function ExcelToPDFTool({ className = '' }: ExcelToPDFToolProps) {
                 </Card>
             )}
 
-            {isProcessing && (
+            {(isProcessing || status === 'complete') && (
                 <ProcessingProgress progress={progress} status={status} message={progressMessage} onCancel={handleCancel} showPercentage />
             )}
 

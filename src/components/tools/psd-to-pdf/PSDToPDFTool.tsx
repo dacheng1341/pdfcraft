@@ -489,7 +489,7 @@ export function PSDToPDFTool({ className = '' }: PSDToPDFToolProps) {
             )}
 
             {/* Processing Progress */}
-            {isProcessing && (
+            {(isProcessing || status === 'complete') && (
                 <ProcessingProgress
                     progress={progress}
                     status={status}

@@ -362,8 +362,8 @@ export function AddAttachmentsTool({ className = '' }: AddAttachmentsToolProps) 
       )}
 
       {/* Processing Progress */}
-      {isProcessing && (
-        <ProcessingProgress
+      {(isProcessing || status === 'complete') && (
+                <ProcessingProgress
           progress={progress}
           status={status}
           message={progressMessage}

@@ -323,8 +323,8 @@ export function EncryptPDFTool({ className = '' }: EncryptPDFToolProps) {
       )}
 
       {/* Processing Progress */}
-      {isProcessing && (
-        <ProcessingProgress
+      {(isProcessing || status === 'complete') && (
+                <ProcessingProgress
           progress={progress}
           status={status}
           message={progressMessage}

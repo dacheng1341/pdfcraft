@@ -393,7 +393,7 @@ export function ExtractImagesTool({ className = '' }: ExtractImagesToolProps) {
             )}
 
             {/* Processing Progress */}
-            {isProcessing && (
+            {(isProcessing || status === 'complete') && (
                 <ProcessingProgress
                     progress={progress}
                     status={status}

@@ -301,8 +301,8 @@ export function PDFToGreyscaleTool({ className = '' }: PDFToGreyscaleToolProps) 
       )}
 
       {/* Processing Progress */}
-      {isProcessing && (
-        <ProcessingProgress
+      {(isProcessing || status === 'complete') && (
+                <ProcessingProgress
           progress={progress}
           status={status}
           message={progressMessage}

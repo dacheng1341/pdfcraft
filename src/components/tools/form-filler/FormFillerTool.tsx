@@ -75,7 +75,7 @@ export function FormFillerTool({ className = '' }: FormFillerToolProps) {
           )}
         </>
       )}
-      {isProcessing && <ProcessingProgress progress={progress} status={status} onCancel={() => { cancelledRef.current = true; setStatus('idle'); }} showPercentage />}
+      {(isProcessing || status === 'complete') && <ProcessingProgress progress={progress} status={status} onCancel={() => { cancelledRef.current = true; setStatus('idle'); }} showPercentage />}
       {file && fields.length > 0 && <div className="flex flex-wrap items-center gap-4"><Button variant="primary" size="lg" onClick={handleProcess} disabled={!file || isProcessing} loading={isProcessing}>{isProcessing ? 'Processing...' : 'Fill Form'}</Button>{result && <DownloadButton file={result} filename={file.name.replace('.pdf', '_filled.pdf')} variant="secondary" size="lg" showFileSize />}</div>}
       {status === 'complete' && result && <div className="p-4 rounded bg-green-50 border border-green-200 text-green-700"><p className="text-sm font-medium">Form filled successfully!</p></div>}
     </div>

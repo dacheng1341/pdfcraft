@@ -309,7 +309,7 @@ export function TextToPDFTool({ className = '' }: TextToPDFToolProps) {
         </Card>
       )}
 
-      {isProcessing && <ProcessingProgress progress={progress} status={status} message={progressMessage} onCancel={handleCancel} showPercentage />}
+      {(isProcessing || status === 'complete') && <ProcessingProgress progress={progress} status={status} message={progressMessage} onCancel={handleCancel} showPercentage />}
 
       <div className="flex flex-wrap items-center gap-4">
         <Button variant="primary" size="lg" onClick={handleConvert} disabled={!canConvert} loading={isProcessing}>

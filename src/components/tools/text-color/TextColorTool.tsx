@@ -153,8 +153,8 @@ export function TextColorTool({ className = '' }: TextColorToolProps) {
         </>
       )}
       
-      {isProcessing && (
-        <ProcessingProgress 
+      {(isProcessing || status === 'complete') && (
+                <ProcessingProgress 
           progress={progress} 
           status={status} 
           onCancel={() => { cancelledRef.current = true; setStatus('idle'); }} 

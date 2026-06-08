@@ -138,7 +138,7 @@ export function RepairPDFTool({ className = '' }: RepairPDFToolProps) {
                 </>
             )}
 
-            {isProcessing && (
+            {(isProcessing || status === 'complete') && (
                 <ProcessingProgress
                     progress={progress}
                     status={status}

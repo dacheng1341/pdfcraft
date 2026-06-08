@@ -188,7 +188,7 @@ export function EmailToPDFTool({ className = '' }: EmailToPDFToolProps) {
                 </Card>
             )}
 
-            {isProcessing && (
+            {(isProcessing || status === 'complete') && (
                 <ProcessingProgress progress={progress} status="processing" message="Converting email to PDF..." showPercentage />
             )}
 

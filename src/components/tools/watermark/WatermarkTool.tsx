@@ -770,8 +770,8 @@ export function WatermarkTool({ className = '' }: WatermarkToolProps) {
               )}
             </div>
 
-            {isProcessing && (
-              <ProcessingProgress
+            {(isProcessing || status === 'complete') && (
+                <ProcessingProgress
                 progress={progress}
                 status={status}
                 message={progressMessage}

@@ -415,7 +415,7 @@ Enjoy converting your Markdown to PDF!
             </Card>
 
             {/* Processing Progress */}
-            {isProcessing && (
+            {(isProcessing || status === 'complete') && (
                 <ProcessingProgress
                     progress={progress}
                     status="processing"

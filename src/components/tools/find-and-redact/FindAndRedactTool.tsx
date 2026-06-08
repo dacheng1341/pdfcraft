@@ -874,8 +874,8 @@ export function FindAndRedactTool({ className = '' }: FindAndRedactToolProps) {
                     )}
 
                     {/* Progress */}
-                    {isProcessing && (
-                        <ProcessingProgress
+                    {(isProcessing || status === 'complete') && (
+                <ProcessingProgress
                             progress={progress}
                             status={status}
                             message={progressMessage}

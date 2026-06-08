@@ -443,7 +443,7 @@ export function RotateCustomTool({ className = '' }: RotateCustomToolProps) {
             )}
 
             {/* Processing Progress */}
-            {isProcessing && (
+            {(isProcessing || status === 'complete') && (
                 <ProcessingProgress
                     progress={progress}
                     status={status}

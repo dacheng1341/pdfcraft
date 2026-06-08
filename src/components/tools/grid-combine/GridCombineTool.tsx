@@ -715,7 +715,7 @@ export function GridCombineTool({ className = '' }: GridCombineToolProps) {
             </div>
 
             {/* Processing Progress */}
-            {isProcessing && (
+            {(isProcessing || status === 'complete') && (
                 <ProcessingProgress
                     progress={progress}
                     status={status}

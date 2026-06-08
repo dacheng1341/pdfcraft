@@ -173,7 +173,7 @@ export function CBZToPDFTool({ className = '' }: CBZToPDFToolProps) {
                 </Card>
             )}
 
-            {isProcessing && (
+            {(isProcessing || status === 'complete') && (
                 <ProcessingProgress progress={progress} status="processing" message="Converting comic to PDF..." showPercentage />
             )}
 

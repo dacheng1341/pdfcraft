@@ -68,8 +68,8 @@ export function InvertColorsTool({ className = '' }: InvertColorsToolProps) {
         </Card>
       )}
       
-      {isProcessing && (
-        <ProcessingProgress 
+      {(isProcessing || status === 'complete') && (
+                <ProcessingProgress 
           progress={progress} 
           status={status} 
           onCancel={() => { cancelledRef.current = true; setStatus('idle'); }} 

@@ -351,7 +351,7 @@ export function OCGManagerTool({ className = '' }: OCGManagerToolProps) {
                 </Card>
             )}
 
-            {isProcessing && (
+            {(isProcessing || status === 'complete') && (
                 <ProcessingProgress progress={progress} status="processing" message="Processing layers..." showPercentage />
             )}
 
