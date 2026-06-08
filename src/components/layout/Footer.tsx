@@ -22,7 +22,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
     { href: `/${locale}/about`, label: t('navigation.about') },
     { href: `/${locale}/faq`, label: t('navigation.faq') },
     { href: `/${locale}/privacy`, label: t('navigation.privacy') },
-    { href: `/${locale}/contact`, label: t('navigation.contact') },
+    { href: 'https://dacbbox.com', label: t('navigation.contact') },
   ];
 
   const handleLanguageChange = (newLocale: Locale) => {

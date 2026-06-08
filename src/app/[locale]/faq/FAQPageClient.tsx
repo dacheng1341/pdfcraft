@@ -210,7 +210,7 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
               <p className="text-[hsl(var(--color-muted-foreground))] mb-6">
                 {t('cta.description')}
               </p>
-              <Link href={`/${locale}/contact`}>
+              <Link href="https://dacbbox.com">
                 <Button variant="primary">
                   {t('cta.button')}
                   <ArrowRight className="ml-2 h-4 w-4" />

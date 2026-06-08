@@ -58,7 +58,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, locale 
     { href: `/${locale}/about`, label: tCommon('navigation.about') },
     { href: `/${locale}/faq`, label: tCommon('navigation.faq') },
     { href: `/${locale}/privacy`, label: tCommon('navigation.privacy') },
-    { href: `/${locale}/contact`, label: tCommon('navigation.contact') },
+    { href: 'https://dacbbox.com', label: tCommon('navigation.contact') },
   ];
 
   // Focus trap and escape key handling

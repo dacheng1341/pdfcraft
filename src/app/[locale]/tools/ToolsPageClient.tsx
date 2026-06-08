@@ -110,8 +110,8 @@ export default function ToolsPageClient({ locale, localizedToolContent }: ToolsP
       <Header locale={locale} />
 
       <main className="flex-1">
-        {/* Page Header */}
-        <section className="relative pt-36 pb-20 overflow-hidden">
+        {/* Compact Header & Filters */}
+        <section className="relative pt-24 pb-6 overflow-hidden bg-[hsl(var(--color-background))] border-b border-[hsl(var(--color-border)/0.5)]">
           {/* Animated Background Blobs (Subtle) */}
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[hsl(var(--color-primary)/0.05)] rounded-full mix-blend-multiply filter blur-3xl opacity-50" />
@@ -119,50 +119,48 @@ export default function ToolsPageClient({ locale, localizedToolContent }: ToolsP
           </div>
 
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-[hsl(var(--color-foreground))] mb-6">
-                <span className="text-gradient">{t('toolsPage.title')}</span>
-              </h1>
-              <p className="text-lg text-[hsl(var(--color-muted-foreground))] mb-10 leading-relaxed">
-                {t('toolsPage.subtitle', { count: allTools.length })}
-              </p>
+            {/* Title and Search Row */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+              <div className="flex items-center gap-3">
+                <h1 className="text-2xl font-bold text-[hsl(var(--color-foreground))] m-0">
+                  <span className="text-gradient">{t('toolsPage.title')}</span>
+                </h1>
+                <span className="px-2 py-1 bg-[hsl(var(--color-primary)/0.1)] text-[hsl(var(--color-primary))] text-xs font-semibold rounded-full hidden sm:inline-block">
+                  {t('toolsPage.subtitle', { count: allTools.length })}
+                </span>
+              </div>
 
               {/* Search Bar */}
-              <div className="relative max-w-2xl mx-auto">
+              <div className="relative w-full md:w-80 lg:w-[400px]">
                 <div className="relative group">
-                  <Search className="absolute left-5 top-1/2 -translate-y-1/2 h-5 w-5 text-[hsl(var(--color-primary))] group-focus-within:text-[hsl(var(--color-primary))] transition-colors z-10" aria-hidden="true" />
+                  <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[hsl(var(--color-muted-foreground))] group-focus-within:text-[hsl(var(--color-primary))] transition-colors z-10" aria-hidden="true" />
                   <input
                     type="search"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder={t('tools.search.placeholder')}
-                    className="w-full pl-14 pr-12 py-4 text-lg rounded-2xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] dark:bg-[hsl(var(--color-card))] text-[hsl(var(--color-foreground))] placeholder:text-[hsl(var(--color-muted-foreground))] shadow-md focus:outline-none focus:ring-4 focus:ring-[hsl(var(--color-primary)/0.15)] focus:border-[hsl(var(--color-primary))] transition-all"
+                    className="w-full pl-10 pr-10 py-2 text-sm rounded-full border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] text-[hsl(var(--color-foreground))] placeholder:text-[hsl(var(--color-muted-foreground))] shadow-sm focus:outline-none focus:ring-2 focus:ring-[hsl(var(--color-primary)/0.15)] focus:border-[hsl(var(--color-primary))] transition-all"
                     aria-label="Search tools"
                   />
                   {searchQuery && (
                     <button
                       onClick={handleClearSearch}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 p-2 hover:bg-[hsl(var(--color-muted))] rounded-full transition-colors"
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1 hover:bg-[hsl(var(--color-muted))] rounded-full transition-colors"
                       aria-label="Clear search"
                     >
-                      <X className="h-5 w-5 text-[hsl(var(--color-muted-foreground))]" aria-hidden="true" />
+                      <X className="h-4 w-4 text-[hsl(var(--color-muted-foreground))]" aria-hidden="true" />
                     </button>
                   )}
                 </div>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* Filters and Tools */}
-        <section className="py-8 bg-[hsl(var(--color-muted)/0.3)] min-h-[500px]">
-          <div className="container mx-auto px-4">
             {/* Filter Bar */}
-            <div className="flex flex-col md:flex-row items-center gap-6 mb-10 sticky top-20 z-40 py-4 px-6 rounded-2xl glass-card transition-all">
+            <div className="flex flex-col md:flex-row items-center gap-4 py-2 px-4 rounded-xl bg-[hsl(var(--color-muted)/0.5)] border border-[hsl(var(--color-border))] transition-all">
               {/* Mobile Filter Toggle */}
               <Button
                 variant="outline"
-                className="md:hidden w-full"
+                className="md:hidden w-full h-9 text-sm"
                 onClick={() => setShowFilters(!showFilters)}
                 aria-expanded={showFilters}
                 aria-controls="category-filters"
@@ -173,7 +171,7 @@ export default function ToolsPageClient({ locale, localizedToolContent }: ToolsP
 
               {/* Category Filters */}
               <div
-                className={`flex flex-wrap gap-2 ${showFilters ? 'block w-full' : 'hidden md:flex flex-1'}`}
+                className={`flex flex-wrap gap-1.5 ${showFilters ? 'block w-full' : 'hidden md:flex flex-1'}`}
                 role="group"
                 aria-label="Filter by category"
               >
@@ -183,11 +181,11 @@ export default function ToolsPageClient({ locale, localizedToolContent }: ToolsP
                     onClick={() => setSelectedCategory(cat.value)}
                     aria-pressed={selectedCategory === cat.value}
                     className={`
-                      px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-1.5
+                      px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 flex items-center gap-1.5
                       ${selectedCategory === cat.value
                         ? cat.value === 'favorites'
-                          ? 'bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 shadow-md'
-                          : 'bg-[hsl(var(--color-primary))] text-white shadow-md shadow-primary/25'
+                          ? 'bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 shadow-sm'
+                          : 'bg-[hsl(var(--color-primary))] text-white shadow-sm'
                         : 'bg-transparent text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-muted))] hover:text-[hsl(var(--color-foreground))]'
                       }
                     `}
@@ -195,12 +193,12 @@ export default function ToolsPageClient({ locale, localizedToolContent }: ToolsP
                     {cat.icon}
                     {cat.label}
                     {cat.value === 'favorites' && favoritesLoaded && (
-                      <span className={`ml-0.5 text-xs ${selectedCategory === cat.value ? 'opacity-100' : 'opacity-60'}`}>
+                      <span className={`ml-0.5 text-[10px] ${selectedCategory === cat.value ? 'opacity-100' : 'opacity-60'}`}>
                         ({favoritesCount})
                       </span>
                     )}
                     {cat.value !== 'all' && cat.value !== 'favorites' && (
-                      <span className={`ml-0.5 text-xs ${selectedCategory === cat.value ? 'opacity-100' : 'opacity-60'}`}>
+                      <span className={`ml-0.5 text-[10px] ${selectedCategory === cat.value ? 'opacity-100' : 'opacity-60'}`}>
                         ({getToolsByCategory(cat.value as ToolCategory).length})
                       </span>
                     )}
@@ -214,12 +212,18 @@ export default function ToolsPageClient({ locale, localizedToolContent }: ToolsP
                   variant="ghost"
                   size="sm"
                   onClick={handleClearFilters}
-                  className="ml-auto text-sm text-[hsl(var(--color-muted-foreground))]"
+                  className="ml-auto h-8 px-2 text-xs text-[hsl(var(--color-muted-foreground))]"
                 >
                   {t('toolsPage.clearAll')}
                 </Button>
               )}
             </div>
+          </div>
+        </section>
+
+        {/* Tools */}
+        <section className="py-6 bg-[hsl(var(--color-muted)/0.2)] min-h-[500px]">
+          <div className="container mx-auto px-4">
 
             {/* Results Count */}
             <div className="mb-6 px-2">
